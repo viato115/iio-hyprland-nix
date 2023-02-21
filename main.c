@@ -85,19 +85,19 @@ void system_fmt(char* format, ...) {
 void handle_orientation(enum Orientation orientation) {
     switch (orientation) {
         case Normal:
-            system_fmt("hyprctl keyword monitor eDP-1,transform,0", output);
+            system_fmt("hyprctl keyword monitor \"output %s,transform,0\"", output);
             break;
 
         case BottomUp:
-            system_fmt("hyprctl keyword monitor eDP-1,transform,2", output);
+            system_fmt("hyprctl keyword monitor \"output %s,transform,2\"", output);
             break;
 
         case LeftUp:
-            system_fmt("hyprctl keyword monitor eDP-1,transform,1", output);
+            system_fmt("hyprctl keyword monitor \"output %s,transform,1\"", output);
             break;
 
         case RightUp:
-            system_fmt("hyprctl keyword monitor eDP-1,transform,3", output);
+            system_fmt("hyprctl keyword monitor \"output %s,transform,3\"", output);
             break;
 
         default:
