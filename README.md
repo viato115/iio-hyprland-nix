@@ -1,4 +1,5 @@
 # iio-hyprland
+A fork of okeri/iio-sway for Hyprland
 Listen iio-sensor-proxy and auto change Hyprland output orientation
 
 ## installing 
