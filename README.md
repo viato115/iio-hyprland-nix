@@ -1,10 +1,27 @@
 # iio-hyprland
 A fork of okeri/iio-sway for Hyprland
-Listen iio-sensor-proxy and auto change Hyprland output orientation
 
-## installing 
-1. Make sure iio-sensor-proxy running
-2. add exec iio-hyprland to your Hyprland config file
+Listens to iio-sensor-proxy and automatically changes Hyprland output orientation
 
-## running
-./iio-hyprland [monitor to rotate, default=eDP-1], run **hyprctl monitors** to list.
+## Installing 
+
+:warning: Make sure [iio-sensor-proxy](https://gitlab.freedesktop.org/hadess/iio-sensor-proxy/) running :warning:
+
+### Build from scratch
+
+```
+git clone https://github.com/JeanSchoeller/iio-hyprland
+
+cd iio-hyprland
+
+mkdir build
+
+meson build
+
+cd build
+
+ninja install
+```
+
+## Running
+`iio-hyprland[monitor to rotate, default=eDP-1]`, run `hyprctl monitors` to list available outputs.
