@@ -5,7 +5,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <dbus/dbus.h>
-
+    
 enum Orientation { Undefined, Normal, RightUp, LeftUp, BottomUp };
 
 DBusError error;
@@ -85,19 +85,19 @@ void system_fmt(char* format, ...) {
 void handle_orientation(enum Orientation orientation) {
     switch (orientation) {
         case Normal:
-            system_fmt("hyprctl keyword monitor \"output %s,transform,0\"", output);
+            system_fmt("hyprctl keyword monitor %s,transform,0", output);
             break;
 
         case BottomUp:
-            system_fmt("hyprctl keyword monitor \"output %s,transform,2\"", output);
+            system_fmt("hyprctl keyword monitor %s,transform,2", output);
             break;
 
         case LeftUp:
-            system_fmt("hyprctl keyword monitor \"output %s,transform,1\"", output);
+            system_fmt("hyprctl keyword monitor %s,transform,1", output);
             break;
 
         case RightUp:
-            system_fmt("hyprctl keyword monitor \"output %s,transform,3\"", output);
+            system_fmt("hyprctl keyword monitor %s,transform,3", output);
             break;
 
         default:
