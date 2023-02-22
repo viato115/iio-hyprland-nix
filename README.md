@@ -7,6 +7,10 @@ Listens to iio-sensor-proxy and automatically changes Hyprland output orientatio
 
 :warning: Make sure [iio-sensor-proxy](https://gitlab.freedesktop.org/hadess/iio-sensor-proxy/) running :warning:
 
+### Arch linux users
+`yay iio-hyprland-git`
+`paru iio-hyprland-git`
+
 ### Build from scratch
 
 ```
@@ -25,3 +29,4 @@ ninja install
 
 ## Running
 `iio-hyprland[monitor to rotate, default=eDP-1]`, run `hyprctl monitors` to list available outputs.
+
