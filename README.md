@@ -7,8 +7,10 @@ Listens to iio-sensor-proxy and automatically changes Hyprland output orientatio
 
 :warning: Make sure [iio-sensor-proxy](https://gitlab.freedesktop.org/hadess/iio-sensor-proxy/) running :warning:
 
-### Arch linux users
+### Arch linux
+
 `yay iio-hyprland-git`
+
 `paru iio-hyprland-git`
 
 ### Build from scratch
