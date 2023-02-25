@@ -13,7 +13,7 @@ char* output = "eDP-1";
 char* touch_yoga = "wacom-hid-517f-finger";
 char* pen_yoga = "wacom-hid-517f-pen";
 char* touch_surface = "ipts-touch";
-char* pen_surface = "ipts-pen";
+char* pen_surface = "ipts-stylus";
 
 void dbus_disconnect(DBusConnection* connection) {
     dbus_connection_flush(connection);
