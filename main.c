@@ -10,6 +10,10 @@ enum Orientation { Undefined, Normal, RightUp, LeftUp, BottomUp };
 
 DBusError error;
 char* output = "eDP-1";
+char* touch_yoga = "wacom-hid-517f-finger";
+char* pen_yoga = "wacom-hid-517f-pen";
+char* touch_surface = "ipts-touch";
+char* pen_surface = "ipts-pen";
 
 void dbus_disconnect(DBusConnection* connection) {
     dbus_connection_flush(connection);
@@ -86,18 +90,34 @@ void handle_orientation(enum Orientation orientation) {
     switch (orientation) {
         case Normal:
             system_fmt("hyprctl keyword monitor %s,transform,0", output);
+            system_fmt("hyprctl keyword device:%s:transform 0", touch_yoga);
+            system_fmt("hyprctl keyword device:%s:transform 0", pen_yoga);
+            system_fmt("hyprctl keyword device:%s:transform 0", touch_surface);
+            system_fmt("hyprctl keyword device:%s:transform 0", pen_surface);
             break;
 
         case BottomUp:
             system_fmt("hyprctl keyword monitor %s,transform,2", output);
+            system_fmt("hyprctl keyword device:%s:transform 2", touch_yoga);
+            system_fmt("hyprctl keyword device:%s:transform 2", pen_yoga);
+            system_fmt("hyprctl keyword device:%s:transform 2", touch_surface);
+            system_fmt("hyprctl keyword device:%s:transform 2", pen_surface);
             break;
 
         case LeftUp:
             system_fmt("hyprctl keyword monitor %s,transform,1", output);
+            system_fmt("hyprctl keyword device:%s:transform 1", touch_yoga);
+            system_fmt("hyprctl keyword device:%s:transform 1", pen_yoga);
+            system_fmt("hyprctl keyword device:%s:transform 1", touch_surface);
+            system_fmt("hyprctl keyword device:%s:transform 1", pen_surface);
             break;
 
         case RightUp:
             system_fmt("hyprctl keyword monitor %s,transform,3", output);
+            system_fmt("hyprctl keyword device:%s:transform 3", touch_yoga);
+            system_fmt("hyprctl keyword device:%s:transform 3", pen_yoga);
+            system_fmt("hyprctl keyword device:%s:transform 3", touch_surface);
+            system_fmt("hyprctl keyword device:%s:transform 3", pen_surface);
             break;
 
         default:
