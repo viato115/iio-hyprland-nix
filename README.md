@@ -30,5 +30,6 @@ ninja install
 ```
 
 ## Running
-`iio-hyprland[monitor to rotate, default=eDP-1]`, run `hyprctl monitors` to list available outputs.
+`iio-hyprland [monitor to rotate, default=eDP-1]`, run `hyprctl monitors` to list available outputs.
 
+Add `exec iio-hyprland` to `~/.config/hypr/hyprland.conf`
