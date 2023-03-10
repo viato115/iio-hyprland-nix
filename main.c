@@ -14,6 +14,8 @@ char* touch_yoga = "wacom-hid-517f-finger";
 char* pen_yoga = "wacom-hid-517f-pen";
 char* touch_surface = "ipts-touch";
 char* pen_surface = "ipts-stylus";
+char* touch_zenbook = "elan9008:00-04f3:2bb3";
+char* pen_zenbook = "elan9008:00-04f3:2bb3-stylus";
 
 void dbus_disconnect(DBusConnection* connection) {
     dbus_connection_flush(connection);
@@ -94,6 +96,8 @@ void handle_orientation(enum Orientation orientation) {
             system_fmt("hyprctl keyword device:%s:transform 0", pen_yoga);
             system_fmt("hyprctl keyword device:%s:transform 0", touch_surface);
             system_fmt("hyprctl keyword device:%s:transform 0", pen_surface);
+            system_fmt("hyprctl keyword device:%s:transform 0", touch_zenbook);
+            system_fmt("hyprctl keyword device:%s:transform 0", pen_zenbook);
             break;
 
         case BottomUp:
@@ -102,6 +106,8 @@ void handle_orientation(enum Orientation orientation) {
             system_fmt("hyprctl keyword device:%s:transform 2", pen_yoga);
             system_fmt("hyprctl keyword device:%s:transform 2", touch_surface);
             system_fmt("hyprctl keyword device:%s:transform 2", pen_surface);
+            system_fmt("hyprctl keyword device:%s:transform 2", touch_zenbook);
+            system_fmt("hyprctl keyword device:%s:transform 2", pen_zenbook);
             break;
 
         case LeftUp:
@@ -110,6 +116,8 @@ void handle_orientation(enum Orientation orientation) {
             system_fmt("hyprctl keyword device:%s:transform 1", pen_yoga);
             system_fmt("hyprctl keyword device:%s:transform 1", touch_surface);
             system_fmt("hyprctl keyword device:%s:transform 1", pen_surface);
+            system_fmt("hyprctl keyword device:%s:transform 1", touch_zenbook);
+            system_fmt("hyprctl keyword device:%s:transform 1", pen_zenbook);
             break;
 
         case RightUp:
@@ -118,6 +126,8 @@ void handle_orientation(enum Orientation orientation) {
             system_fmt("hyprctl keyword device:%s:transform 3", pen_yoga);
             system_fmt("hyprctl keyword device:%s:transform 3", touch_surface);
             system_fmt("hyprctl keyword device:%s:transform 3", pen_surface);
+            system_fmt("hyprctl keyword device:%s:transform 3", touch_zenbook);
+            system_fmt("hyprctl keyword device:%s:transform 3", pen_zenbook);
             break;
 
         default:
@@ -217,7 +227,7 @@ int main(int argc, char* argv[]) {
         output = argv[1];
     }
 
-    // if sway and iio-sway are restarted after display is already rotated,
+    // if hyprland and iio-hyprland are restarted after display is already rotated,
     // init_orientation ensures correct immediate orientation without
     // waiting for display to move
     init_orientation(connection);
