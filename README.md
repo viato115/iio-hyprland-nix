@@ -36,4 +36,8 @@ Add `exec iio-hyprland` to `~/.config/hypr/hyprland.conf`
 
 ## Touch rotation support
 
-So far only Surface Pro and Lenovo Yoga have touch support for rotation. Please open an issue and list the touch devices of your specifications using `hyprctl devices`.
+Please open an issue and list the touch devices of your specifications using `hyprctl devices`. The following list should refer to the device working:
+
+Surface Pro
+Lenovo Yoga
+Zenbook
