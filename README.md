@@ -41,3 +41,4 @@ Please open an issue and list the touch devices of your specifications using `hy
 Surface Pro
 Lenovo Yoga
 Zenbook
+HP x360 EliteBook G9
