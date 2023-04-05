@@ -16,6 +16,8 @@ char* touch_surface = "ipts-touch";
 char* pen_surface = "ipts-stylus";
 char* touch_zenbook = "elan9008:00-04f3:2bb3";
 char* pen_zenbook = "elan9008:00-04f3:2bb3-stylus";
+char* touch_elitebook1040 = "wacom-hid-49f7-finger";
+char* pen_elitebook1040 = "wacom-hid-49f7-pen";
 
 void dbus_disconnect(DBusConnection* connection) {
     dbus_connection_flush(connection);
@@ -98,6 +100,8 @@ void handle_orientation(enum Orientation orientation) {
             system_fmt("hyprctl keyword device:%s:transform 0", pen_surface);
             system_fmt("hyprctl keyword device:%s:transform 0", touch_zenbook);
             system_fmt("hyprctl keyword device:%s:transform 0", pen_zenbook);
+            system_fmt("hyprctl keyword device:%s:transform 0", touch_elitebook1040);
+            system_fmt("hyprctl keyword device:%s:transform 0", pen_elitebook1040);
             break;
 
         case BottomUp:
@@ -108,6 +112,8 @@ void handle_orientation(enum Orientation orientation) {
             system_fmt("hyprctl keyword device:%s:transform 2", pen_surface);
             system_fmt("hyprctl keyword device:%s:transform 2", touch_zenbook);
             system_fmt("hyprctl keyword device:%s:transform 2", pen_zenbook);
+            system_fmt("hyprctl keyword device:%s:transform 2", touch_elitebook1040);
+            system_fmt("hyprctl keyword device:%s:transform 2", pen_elitebook1040);
             break;
 
         case LeftUp:
@@ -118,6 +124,8 @@ void handle_orientation(enum Orientation orientation) {
             system_fmt("hyprctl keyword device:%s:transform 1", pen_surface);
             system_fmt("hyprctl keyword device:%s:transform 1", touch_zenbook);
             system_fmt("hyprctl keyword device:%s:transform 1", pen_zenbook);
+            system_fmt("hyprctl keyword device:%s:transform 1", touch_elitebook1040);
+            system_fmt("hyprctl keyword device:%s:transform 1", pen_elitebook1040);
             break;
 
         case RightUp:
@@ -128,6 +136,8 @@ void handle_orientation(enum Orientation orientation) {
             system_fmt("hyprctl keyword device:%s:transform 3", pen_surface);
             system_fmt("hyprctl keyword device:%s:transform 3", touch_zenbook);
             system_fmt("hyprctl keyword device:%s:transform 3", pen_zenbook);
+            system_fmt("hyprctl keyword device:%s:transform 3", touch_elitebook1040);
+            system_fmt("hyprctl keyword device:%s:transform 3", pen_elitebook1040);
             break;
 
         default:
