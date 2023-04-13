@@ -38,6 +38,7 @@ Add `exec iio-hyprland` to `~/.config/hypr/hyprland.conf`
 
 Please open an issue and list the touch devices of your specifications using `hyprctl devices`. The following list should refer to the device working:
 
-Surface Pro
-Lenovo Yoga
-Zenbook
+* Surface Pro
+* Lenovo Yoga
+* Zenbook
+* HP x360 EliteBook G9
