@@ -42,3 +42,4 @@ Please open an issue and list the touch devices of your specifications using `hy
 * Lenovo Yoga
 * Zenbook
 * HP x360 EliteBook G9
+* Lenovo X1 Yoga Touch
