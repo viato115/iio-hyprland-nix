@@ -18,6 +18,8 @@ char* touch_zenbook = "elan9008:00-04f3:2bb3";
 char* pen_zenbook = "elan9008:00-04f3:2bb3-stylus";
 char* touch_elitebook1040 = "wacom-hid-49f7-finger";
 char* pen_elitebook1040 = "wacom-hid-49f7-pen";
+char* pen_x1_yoga = "wacom-hid-52b5-pen"
+char* touch_x1_yoga = "wacom-hid-52b5-finger";
 
 void dbus_disconnect(DBusConnection* connection) {
     dbus_connection_flush(connection);
@@ -102,6 +104,8 @@ void handle_orientation(enum Orientation orientation) {
             system_fmt("hyprctl keyword device:%s:transform 0", pen_zenbook);
             system_fmt("hyprctl keyword device:%s:transform 0", touch_elitebook1040);
             system_fmt("hyprctl keyword device:%s:transform 0", pen_elitebook1040);
+            system_fmt("hyprctl keyword device:%s:transform 0", touch_x1_yoga);                                         
+            system_fmt("hyprctl keyword device:%s:transform 0", pen_x1_yoga); 
             break;
 
         case BottomUp:
@@ -114,6 +118,8 @@ void handle_orientation(enum Orientation orientation) {
             system_fmt("hyprctl keyword device:%s:transform 2", pen_zenbook);
             system_fmt("hyprctl keyword device:%s:transform 2", touch_elitebook1040);
             system_fmt("hyprctl keyword device:%s:transform 2", pen_elitebook1040);
+            system_fmt("hyprctl keyword device:%s:transform 2", touch_x1_yoga);                                         
+            system_fmt("hyprctl keyword device:%s:transform 2", pen_x1_yoga); 
             break;
 
         case LeftUp:
@@ -126,6 +132,8 @@ void handle_orientation(enum Orientation orientation) {
             system_fmt("hyprctl keyword device:%s:transform 1", pen_zenbook);
             system_fmt("hyprctl keyword device:%s:transform 1", touch_elitebook1040);
             system_fmt("hyprctl keyword device:%s:transform 1", pen_elitebook1040);
+            system_fmt("hyprctl keyword device:%s:transform 1", touch_x1_yoga);                                         
+            system_fmt("hyprctl keyword device:%s:transform 1", pen_x1_yoga); 
             break;
 
         case RightUp:
@@ -138,6 +146,8 @@ void handle_orientation(enum Orientation orientation) {
             system_fmt("hyprctl keyword device:%s:transform 3", pen_zenbook);
             system_fmt("hyprctl keyword device:%s:transform 3", touch_elitebook1040);
             system_fmt("hyprctl keyword device:%s:transform 3", pen_elitebook1040);
+            system_fmt("hyprctl keyword device:%s:transform 3", touch_x1_yoga);                                         
+            system_fmt("hyprctl keyword device:%s:transform 3", pen_x1_yoga); 
             break;
 
         default:
