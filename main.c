@@ -5,7 +5,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <dbus/dbus.h>
-    
+
 enum Orientation { Undefined, Normal, RightUp, LeftUp, BottomUp };
 
 DBusError error;
@@ -20,6 +20,8 @@ char* touch_elitebook1040 = "wacom-hid-49f7-finger";
 char* pen_elitebook1040 = "wacom-hid-49f7-pen";
 char* pen_x1_yoga = "wacom-hid-52b5-pen"
 char* touch_x1_yoga = "wacom-hid-52b5-finger";
+char* pen_yoga_6 = "wacom-hid-52fb-pen";
+char* touch_yoga_6 = "wacom-hid-52fb-finger";
 
 void dbus_disconnect(DBusConnection* connection) {
     dbus_connection_flush(connection);
@@ -28,7 +30,7 @@ void dbus_disconnect(DBusConnection* connection) {
     dbus_error_free(&error);
 }
 
-DBusConnection* dbus_connect() {
+DBusConnection* dbus_connect(void) {
     dbus_error_init(&error);
     DBusConnection* connection = dbus_bus_get(DBUS_BUS_SYSTEM, &error);
     if (connection != NULL) {
@@ -104,8 +106,10 @@ void handle_orientation(enum Orientation orientation) {
             system_fmt("hyprctl keyword device:%s:transform 0", pen_zenbook);
             system_fmt("hyprctl keyword device:%s:transform 0", touch_elitebook1040);
             system_fmt("hyprctl keyword device:%s:transform 0", pen_elitebook1040);
-            system_fmt("hyprctl keyword device:%s:transform 0", touch_x1_yoga);                                         
-            system_fmt("hyprctl keyword device:%s:transform 0", pen_x1_yoga); 
+            system_fmt("hyprctl keyword device:%s:transform 0", touch_x1_yoga);
+            system_fmt("hyprctl keyword device:%s:transform 0", pen_x1_yoga);
+            system_fmt("hyprctl keyword device:%s:transform 0", touch_yoga_6);
+            system_fmt("hyprctl keyword device:%s:transform 0", pen_yoga_6);
             break;
 
         case BottomUp:
@@ -118,8 +122,10 @@ void handle_orientation(enum Orientation orientation) {
             system_fmt("hyprctl keyword device:%s:transform 2", pen_zenbook);
             system_fmt("hyprctl keyword device:%s:transform 2", touch_elitebook1040);
             system_fmt("hyprctl keyword device:%s:transform 2", pen_elitebook1040);
-            system_fmt("hyprctl keyword device:%s:transform 2", touch_x1_yoga);                                         
-            system_fmt("hyprctl keyword device:%s:transform 2", pen_x1_yoga); 
+            system_fmt("hyprctl keyword device:%s:transform 2", touch_x1_yoga);
+            system_fmt("hyprctl keyword device:%s:transform 2", pen_x1_yoga);
+            system_fmt("hyprctl keyword device:%s:transform 2", touch_yoga_6);
+            system_fmt("hyprctl keyword device:%s:transform 2", pen_yoga_6);
             break;
 
         case LeftUp:
@@ -132,8 +138,10 @@ void handle_orientation(enum Orientation orientation) {
             system_fmt("hyprctl keyword device:%s:transform 1", pen_zenbook);
             system_fmt("hyprctl keyword device:%s:transform 1", touch_elitebook1040);
             system_fmt("hyprctl keyword device:%s:transform 1", pen_elitebook1040);
-            system_fmt("hyprctl keyword device:%s:transform 1", touch_x1_yoga);                                         
-            system_fmt("hyprctl keyword device:%s:transform 1", pen_x1_yoga); 
+            system_fmt("hyprctl keyword device:%s:transform 1", touch_x1_yoga);
+            system_fmt("hyprctl keyword device:%s:transform 1", pen_x1_yoga);
+            system_fmt("hyprctl keyword device:%s:transform 1", touch_yoga_6);
+            system_fmt("hyprctl keyword device:%s:transform 1", pen_yoga_6);
             break;
 
         case RightUp:
@@ -146,8 +154,10 @@ void handle_orientation(enum Orientation orientation) {
             system_fmt("hyprctl keyword device:%s:transform 3", pen_zenbook);
             system_fmt("hyprctl keyword device:%s:transform 3", touch_elitebook1040);
             system_fmt("hyprctl keyword device:%s:transform 3", pen_elitebook1040);
-            system_fmt("hyprctl keyword device:%s:transform 3", touch_x1_yoga);                                         
-            system_fmt("hyprctl keyword device:%s:transform 3", pen_x1_yoga); 
+            system_fmt("hyprctl keyword device:%s:transform 3", touch_x1_yoga);
+            system_fmt("hyprctl keyword device:%s:transform 3", pen_x1_yoga);
+            system_fmt("hyprctl keyword device:%s:transform 3", touch_yoga_6);
+            system_fmt("hyprctl keyword device:%s:transform 3", pen_yoga_6);
             break;
 
         default:
