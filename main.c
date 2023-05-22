@@ -18,7 +18,7 @@ char* touch_zenbook = "elan9008:00-04f3:2bb3";
 char* pen_zenbook = "elan9008:00-04f3:2bb3-stylus";
 char* touch_elitebook1040 = "wacom-hid-49f7-finger";
 char* pen_elitebook1040 = "wacom-hid-49f7-pen";
-char* pen_x1_yoga = "wacom-hid-52b5-pen"
+char* pen_x1_yoga = "wacom-hid-52b5-pen";
 char* touch_x1_yoga = "wacom-hid-52b5-finger";
 
 void dbus_disconnect(DBusConnection* connection) {
