@@ -5,25 +5,12 @@
 #include <string.h>
 #include <unistd.h>
 #include <dbus/dbus.h>
-
-enum Orientation { Undefined, Normal, RightUp, LeftUp, BottomUp };
+    
+// corresponds to hyprctl orientation integers
+enum Orientation { Normal, LeftUp, BottomUp, RightUp, Undefined};
 
 DBusError error;
-char* output = "eDP-1";
-char* touch_yoga = "wacom-hid-517f-finger";
-char* pen_yoga = "wacom-hid-517f-pen";
-char* touch_surface = "ipts-touch";
-char* pen_surface = "ipts-stylus";
-char* touch_zenbook = "elan9008:00-04f3:2bb3";
-char* pen_zenbook = "elan9008:00-04f3:2bb3-stylus";
-char* touch_elitebook1040 = "wacom-hid-49f7-finger";
-char* pen_elitebook1040 = "wacom-hid-49f7-pen";
-char* pen_x1_yoga = "wacom-hid-52b5-pen";
-char* touch_x1_yoga = "wacom-hid-52b5-finger";
-char* pen_yoga_6 = "wacom-hid-52fb-pen";
-char* touch_yoga_6 = "wacom-hid-52fb-finger";
-char* touch_surface_go_2 = "elan9038:00-04f3:2a1c";
-char* pen_surface_go_2 = "elan9038:00-04f3:2a1c-stylus";
+char* output = "eDP-1"; // Default output device
 
 void dbus_disconnect(DBusConnection* connection) {
     dbus_connection_flush(connection);
@@ -88,7 +75,7 @@ enum Orientation parse_orientation_signal(DBusMessage* msg) {
 }
 
 void system_fmt(char* format, ...) {
-    char command[128];
+    char command[420];
     va_list args;
     va_start(args, format);
     vsnprintf(command, sizeof(command), format, args);
@@ -97,82 +84,18 @@ void system_fmt(char* format, ...) {
 }
 
 void handle_orientation(enum Orientation orientation) {
-    switch (orientation) {
-        case Normal:
-            system_fmt("hyprctl keyword monitor %s,transform,0", output);
-            system_fmt("hyprctl keyword device:%s:transform 0", touch_yoga);
-            system_fmt("hyprctl keyword device:%s:transform 0", pen_yoga);
-            system_fmt("hyprctl keyword device:%s:transform 0", touch_surface);
-            system_fmt("hyprctl keyword device:%s:transform 0", pen_surface);
-            system_fmt("hyprctl keyword device:%s:transform 0", touch_zenbook);
-            system_fmt("hyprctl keyword device:%s:transform 0", pen_zenbook);
-            system_fmt("hyprctl keyword device:%s:transform 0", touch_elitebook1040);
-            system_fmt("hyprctl keyword device:%s:transform 0", pen_elitebook1040);
-            system_fmt("hyprctl keyword device:%s:transform 0", touch_x1_yoga);
-            system_fmt("hyprctl keyword device:%s:transform 0", pen_x1_yoga);
-            system_fmt("hyprctl keyword device:%s:transform 0", touch_yoga_6);
-            system_fmt("hyprctl keyword device:%s:transform 0", pen_yoga_6);
-            system_fmt("hyprctl keyword device:%s:transform 0", touch_surface_go_2);
-            system_fmt("hyprctl keyword device:%s:transform 0", pen_surface_go_2);
-            break;
+    if (orientation == Undefined)
+        return;
 
-        case BottomUp:
-            system_fmt("hyprctl keyword monitor %s,transform,2", output);
-            system_fmt("hyprctl keyword device:%s:transform 2", touch_yoga);
-            system_fmt("hyprctl keyword device:%s:transform 2", pen_yoga);
-            system_fmt("hyprctl keyword device:%s:transform 2", touch_surface);
-            system_fmt("hyprctl keyword device:%s:transform 2", pen_surface);
-            system_fmt("hyprctl keyword device:%s:transform 2", touch_zenbook);
-            system_fmt("hyprctl keyword device:%s:transform 2", pen_zenbook);
-            system_fmt("hyprctl keyword device:%s:transform 2", touch_elitebook1040);
-            system_fmt("hyprctl keyword device:%s:transform 2", pen_elitebook1040);
-            system_fmt("hyprctl keyword device:%s:transform 2", touch_x1_yoga);
-            system_fmt("hyprctl keyword device:%s:transform 2", pen_x1_yoga);
-            system_fmt("hyprctl keyword device:%s:transform 2", touch_yoga_6);
-            system_fmt("hyprctl keyword device:%s:transform 2", pen_yoga_6);
-            system_fmt("hyprctl keyword device:%s:transform 2", touch_surface_go_2);
-            system_fmt("hyprctl keyword device:%s:transform 2", pen_surface_go_2);
-            break;
+    // transform display
+    system_fmt("hyprctl keyword monitor %s,transform,%d", output, orientation);
 
-        case LeftUp:
-            system_fmt("hyprctl keyword monitor %s,transform,1", output);
-            system_fmt("hyprctl keyword device:%s:transform 1", touch_yoga);
-            system_fmt("hyprctl keyword device:%s:transform 1", pen_yoga);
-            system_fmt("hyprctl keyword device:%s:transform 1", touch_surface);
-            system_fmt("hyprctl keyword device:%s:transform 1", pen_surface);
-            system_fmt("hyprctl keyword device:%s:transform 1", touch_zenbook);
-            system_fmt("hyprctl keyword device:%s:transform 1", pen_zenbook);
-            system_fmt("hyprctl keyword device:%s:transform 1", touch_elitebook1040);
-            system_fmt("hyprctl keyword device:%s:transform 1", pen_elitebook1040);
-            system_fmt("hyprctl keyword device:%s:transform 1", touch_x1_yoga);
-            system_fmt("hyprctl keyword device:%s:transform 1", pen_x1_yoga);
-            system_fmt("hyprctl keyword device:%s:transform 1", touch_yoga_6);
-            system_fmt("hyprctl keyword device:%s:transform 1", pen_yoga_6);
-            system_fmt("hyprctl keyword device:%s:transform 1", touch_surface_go_2);
-            system_fmt("hyprctl keyword device:%s:transform 1", pen_surface_go_2);
-            break;
-
-        case RightUp:
-            system_fmt("hyprctl keyword monitor %s,transform,3", output);
-            system_fmt("hyprctl keyword device:%s:transform 3", touch_yoga);
-            system_fmt("hyprctl keyword device:%s:transform 3", pen_yoga);
-            system_fmt("hyprctl keyword device:%s:transform 3", touch_surface);
-            system_fmt("hyprctl keyword device:%s:transform 3", pen_surface);
-            system_fmt("hyprctl keyword device:%s:transform 3", touch_zenbook);
-            system_fmt("hyprctl keyword device:%s:transform 3", pen_zenbook);
-            system_fmt("hyprctl keyword device:%s:transform 3", touch_elitebook1040);
-            system_fmt("hyprctl keyword device:%s:transform 3", pen_elitebook1040);
-            system_fmt("hyprctl keyword device:%s:transform 3", touch_x1_yoga);
-            system_fmt("hyprctl keyword device:%s:transform 3", pen_x1_yoga);
-            system_fmt("hyprctl keyword device:%s:transform 3", touch_yoga_6);
-            system_fmt("hyprctl keyword device:%s:transform 3", pen_yoga_6);
-            system_fmt("hyprctl keyword device:%s:transform 3", touch_surface_go_2);
-            system_fmt("hyprctl keyword device:%s:transform 3", pen_surface_go_2);
-            break;
-
-        default:
-            break;
-    }
+    // transform touch devices
+    // (and pray that our lord and savior vaxry won't change hyprctl output)
+    system_fmt("while IFS=$'\n' read -r device ; do "
+            "hyprctl keyword device:\"$device\":transform %d; "
+            "done <<< \"$(hyprctl devices | awk '/Touch Device at|Tablet at/ {getline;print $1}')\"",
+            orientation);
 }
 
 DBusMessage* request_orientation(DBusConnection* conn) {
