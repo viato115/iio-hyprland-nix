@@ -1,7 +1,5 @@
 # iio-hyprland
-Fork of a fork of okeri/iio-sway for Hyprland
-
-**This fork rotates all Tablets and Touch Devices without the need to add them manually.**
+A fork of okeri/iio-sway for Hyprland
 
 Listens to iio-sensor-proxy and automatically changes Hyprland output orientation
 
@@ -9,17 +7,24 @@ Listens to iio-sensor-proxy and automatically changes Hyprland output orientatio
 
 :warning: Make sure [iio-sensor-proxy](https://gitlab.freedesktop.org/hadess/iio-sensor-proxy/) running :warning:
 
+### Arch linux
+
+`yay iio-hyprland-git`
+
+`paru iio-hyprland-git`
+
+
 ### Build from scratch
 
 ```
-git clone https://github.com/Desktop31/iio-hyprland
+git clone https://github.com/JeanSchoeller/iio-hyprland
 
 cd iio-hyprland
 
 sudo make install
 ```
 
-## Uninstalling 
+#### Uninstalling 
 ```
 cd iio-hyprland
 
