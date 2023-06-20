@@ -20,13 +20,14 @@ git clone https://github.com/JeanSchoeller/iio-hyprland
 
 cd iio-hyprland
 
-mkdir build
+sudo make install
+```
 
-meson build
+## Uninstalling 
+```
+cd iio-hyprland
 
-cd build
-
-ninja install
+sudo make uninstall
 ```
 
 ## Running
