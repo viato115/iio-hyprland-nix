@@ -39,3 +39,5 @@ Add `exec-once = iio-hyprland` to `~/.config/hypr/hyprland.conf`
 ## Touch rotation support
 
 Should automatically rotate all Tablets and Touch Devices from `hyprctl devices`.
+Thank you to Desktop31 for fetching the `hyprctl devices` output.
+
