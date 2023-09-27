@@ -36,6 +36,10 @@ sudo make uninstall
 
 Add `exec-once = iio-hyprland` to `~/.config/hypr/hyprland.conf`
 
+Some users reported that specifying the monitor in hyprland.conf could be necessary. For example, on Surface Pro:
+
+`monitor=eDP-1,preferred,auto,2,transform,0`
+
 ## Touch rotation support
 
 Should automatically rotate all Tablets and Touch Devices from `hyprctl devices`.
