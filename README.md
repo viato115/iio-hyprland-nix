@@ -17,11 +17,12 @@ Listens to iio-sensor-proxy and automatically changes Hyprland output orientatio
 ### Build from scratch
 
 ```
-git clone https://github.com/JeanSchoeller/iio-hyprland
+nix-shell -p ninja meson dbus pkg-config cmake
+mkdir build
+meson build
+cd build
+ninja install
 
-cd iio-hyprland
-
-sudo make install
 ```
 
 #### Uninstalling 
